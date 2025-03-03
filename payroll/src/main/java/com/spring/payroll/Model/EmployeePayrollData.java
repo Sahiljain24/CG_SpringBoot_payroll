@@ -1,11 +1,13 @@
 package com.spring.payroll.Model;
 
-
-
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "employees")
+@Data // Lombok to generate Getters, Setters, toString, equals, hashCode
+@NoArgsConstructor // Generates no-args constructor
+@AllArgsConstructor // Generates constructor with all fields
 public class EmployeePayrollData {
 
     @Id
@@ -14,19 +16,4 @@ public class EmployeePayrollData {
 
     private String name;
     private double salary;
-
-    public EmployeePayrollData() {}
-
-    public EmployeePayrollData(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public double getSalary() { return salary; }
-    public void setSalary(double salary) { this.salary = salary; }
 }

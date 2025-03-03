@@ -7,9 +7,14 @@ import com.spring.payroll.Model.EmployeePayrollData;
 import com.spring.payroll.service.EmployeePayrollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.spring.payroll.DTO.EmployeePayrollDTO;
 
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,14 +42,14 @@ public class EmployeePayrollController {
 
     // POST: Create new employee
     @PostMapping("/create")
-    public EmployeePayrollData createEmployee(@RequestBody EmployeePayrollData employee) {
-        return employeePayrollService.createEmployee(employee);
+    public EmployeePayrollData createEmployee(@RequestBody EmployeePayrollDTO employeeDTO) {
+        return employeePayrollService.createEmployee(employeeDTO);
     }
 
     // PUT: Update employee
     @PutMapping("/update/{id}")
-    public ResponseEntity<EmployeePayrollData> updateEmployee(@PathVariable Long id, @RequestBody EmployeePayrollData updatedEmployee) {
-        return ResponseEntity.ok(employeePayrollService.updateEmployee(id, updatedEmployee));
+    public ResponseEntity<EmployeePayrollData> updateEmployee(@PathVariable Long id, @RequestBody EmployeePayrollDTO updatedDTO) {
+        return ResponseEntity.ok(employeePayrollService.updateEmployee(id, updatedDTO));
     }
 
     // DELETE: Delete employee
