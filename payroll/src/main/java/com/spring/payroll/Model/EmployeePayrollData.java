@@ -5,7 +5,9 @@ import lombok.*;
 
 @Entity
 @Table(name = "employees")
-@Data // Lombok to generate Getters, Setters, toString, equals, hashCode
+@Data
+@Getter
+@Setter// Lombok to generate Getters, Setters, toString, equals, hashCode
 @NoArgsConstructor // Generates no-args constructor
 @AllArgsConstructor // Generates constructor with all fields
 public class EmployeePayrollData {
